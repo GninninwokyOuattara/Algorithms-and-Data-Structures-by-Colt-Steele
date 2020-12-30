@@ -105,16 +105,15 @@ minSubArrayLen([2, 1, 6, 5, 4], 9); // 2 -> because [5,4] is the smallest subarr
 minSubArrayLen([3, 1, 7, 11, 2, 9, 8, 21, 62, 33, 19], 52); // 1 -> because [62] is greater than 52
 ```
 
-### longestSubstring
+### findLongestSubstring
 
 ```javascript
-// Sliding Window - findLongestSubstring
 // Write a function called findLongestSubstring, which accepts a string and
 // returns the length of the longest substring with all distinct characters.
 
 // Time Complexity - O(n^2)
 
-findLongestSubstringVersion2(""); // 0
-findLongestSubstringVersion2("rithmschool"); // 7
-findLongestSubstringVersion2("thisisawesome"); // 6
+findLongestSubstring(""); // 0
+findLongestSubstring("rithmschool"); // 7 - rithmsc
+findLongestSubstring("thisisawesome"); // 6 - awesome
 ```
