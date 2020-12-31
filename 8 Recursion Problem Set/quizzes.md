@@ -93,7 +93,7 @@ console.log(
 console.log(capitalizeWords(["i", "am", "learning", "recursion"])); // ['I', 'AM', 'LEARNING', 'RECURSION']
 ```
 
-## stringifyNumvers
+## stringifyNumbers
 
 ```javascript
 // Write a function called stringifyNumbers which takes in an object and
