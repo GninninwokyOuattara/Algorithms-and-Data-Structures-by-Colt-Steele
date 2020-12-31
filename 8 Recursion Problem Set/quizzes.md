@@ -100,7 +100,22 @@ console.log(capitalizeWords(["i", "am", "learning", "recursion"])); // ['I', 'AM
 // finds all of the values which are numbers and converts them to strings.
 // Recursion would be a great way to solve this!
 
-console.log(stringifyNumbers(obj));
+console.log(
+    stringifyNumbers({
+        num: 1,
+        test: [],
+        data: {
+            val: 4,
+            info: {
+                isRight: true,
+                random: 66,
+            },
+        },
+    })
+);
+// { num: '1',
+//   test: {},
+//   data: { val: '4', info: { isRight: true, random: '66' } } }
 ```
 
 ## collectStrings
