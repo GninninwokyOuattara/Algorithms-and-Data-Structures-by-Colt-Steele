@@ -10,13 +10,10 @@ const selectionSort = (arr) => {
                 smallest = j;
             }
         }
+
+        //Avoid swapping whe unnecessary.
         if (smallest !== i) {
             swap(arr, i, smallest);
         }
     }
-    console.log(arr);
 };
-
-arr = [2, 1, 6, 3, 9, 21, 44, 0, 688, 123];
-
-selectionSort(arr);
