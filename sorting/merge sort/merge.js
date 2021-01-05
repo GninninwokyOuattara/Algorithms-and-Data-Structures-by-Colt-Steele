@@ -14,3 +14,5 @@ const merge = (arr1, arr2) => {
     }
     return arr;
 };
+
+module.exports = merge;
