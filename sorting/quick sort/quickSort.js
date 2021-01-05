@@ -8,7 +8,3 @@ const quickSort = (arr, leftFromPivot = 0, rightFromPivot = arr.length) => {
     }
     return arr;
 };
-
-arr = [9, 4, 8, 2, 1, 5, 7, 6, 3];
-
-console.log(quickSort(arr));
