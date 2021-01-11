@@ -56,6 +56,16 @@ class SinglyLinkedList {
         }
         return this;
     }
+
+    //Shift method
+    shift() {
+        if (!this.length) return undefined;
+        let curr = this.head;
+        this.head = curr.next;
+        this.length--;
+        this.tail = null;
+        return curr;
+    }
 }
 
 module.exports = { SinglyLinkedList, Node };
