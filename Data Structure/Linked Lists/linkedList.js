@@ -90,6 +90,25 @@ class SinglyLinkedList {
         }
         return curr;
     }
+
+    set(pos, val) {
+        let node = this.get(pos);
+        if (!node) return false;
+        node.val = val;
+        return true;
+    }
+
+    // set(pos, val) {
+    //     if (pos < 0 || pos > this.length - 1) return undefined;
+    //     let i = 0;
+    //     let curr = this.head;
+    //     while (i !== pos) {
+    //         curr = curr.next;
+    //         i++;
+    //     }
+    //     curr.val = val;
+    //     return curr;
+    // }
 }
 
 module.exports = { SinglyLinkedList, Node };
