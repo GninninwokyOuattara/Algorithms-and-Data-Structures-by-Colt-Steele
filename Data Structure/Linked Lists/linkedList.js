@@ -29,18 +29,6 @@ class SinglyLinkedList {
     //Pop method
     pop() {
         if (!this.length) return undefined;
-        //mine
-        // let pre = this.head;
-        // let curr = pre.next;
-        // while (curr.next) {
-        //     curr = curr.next;
-        //     pre = pre.next;
-        // }
-        // pre.next = null;
-        // this.tail = pre;
-        // this.length--;
-
-        //Colt's
         let curr = this.head;
         let newTail = curr;
         while (curr.next) {
@@ -67,6 +55,7 @@ class SinglyLinkedList {
         return curr;
     }
 
+    //Unshift method
     unshift(val) {
         let newNode = new Node(val);
         if (!this.head) {
@@ -80,6 +69,7 @@ class SinglyLinkedList {
         return this;
     }
 
+    //get method
     get(idx) {
         if (idx > this.length - 1 || idx < 0) return undefined;
         let curr = this.head;
@@ -91,6 +81,7 @@ class SinglyLinkedList {
         return curr;
     }
 
+    //set method
     set(pos, val) {
         let node = this.get(pos);
         if (!node) return false;
@@ -98,17 +89,24 @@ class SinglyLinkedList {
         return true;
     }
 
-    // set(pos, val) {
-    //     if (pos < 0 || pos > this.length - 1) return undefined;
-    //     let i = 0;
-    //     let curr = this.head;
-    //     while (i !== pos) {
-    //         curr = curr.next;
-    //         i++;
-    //     }
-    //     curr.val = val;
-    //     return curr;
-    // }
+    //insert
+    insert(idx, val) {
+        if (idx < 0 || idx > this.length) return false;
+        //!!"hello" -> true
+        if (idx === this.length) !!this.push(val);
+        else if (idx === 0) !!this.unshift(val);
+        else {
+            let preNode = this.get(idx - 1);
+            if (preNode) {
+                let newNode = new Node(val);
+                newNode.next = preNode.next;
+                preNode.next = newNode;
+                this.length++;
+                return true;
+            }
+            return false;
+        }
+    }
 }
 
 module.exports = { SinglyLinkedList, Node };
