@@ -121,6 +121,40 @@ class SinglyLinkedList {
             return true;
         }
     }
+
+    reverse() {
+        // let prev = this.head;
+        // let curr = prev.next;
+        // this.head = this.tail;
+        // this.tail = prev;
+        // while (curr) {
+        //     let next = curr.next;
+        //     curr.next = prev;
+        //     prev = curr;
+        //     curr = next;
+        // }
+        // this.tail.next = null;
+        // return this;
+
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let prev = null;
+        let next;
+        while (node) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
 }
+
+let k = new SinglyLinkedList();
+k.push(1);
+k.push(2);
+k.push(3);
+k.reverse();
 
 module.exports = { SinglyLinkedList, Node };
