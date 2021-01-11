@@ -51,7 +51,9 @@ class SinglyLinkedList {
         let curr = this.head;
         this.head = curr.next;
         this.length--;
-        this.tail = null;
+        if (this.length === 0) {
+            this.tail = null;
+        }
         return curr;
     }
 
@@ -105,6 +107,18 @@ class SinglyLinkedList {
                 return true;
             }
             return false;
+        }
+    }
+
+    //Remove method
+    remove(idx) {
+        if (idx === 0) !!this.shift();
+        else if (idx === this.length) !!this.pop();
+        else if (idx < 0 || idx > this.length - 1) return undefined;
+        else {
+            let pre = this.get(idx - 1);
+            pre.next = pre.next.next;
+            return true;
         }
     }
 }
