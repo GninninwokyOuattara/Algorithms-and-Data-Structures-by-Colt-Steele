@@ -109,6 +109,7 @@ class DoublyLinkedList {
         return true;
     }
 
+    //Insert method
     insert(idx, val) {
         let node = new Node(val);
         if (idx === 0) !!this.unshift(val);
@@ -125,6 +126,7 @@ class DoublyLinkedList {
         }
     }
 
+    //Remove method
     remove(idx) {
         if (idx === 0) !!this.shift();
         else if (idx === this.length - 1) !!this.pop();
@@ -133,11 +135,25 @@ class DoublyLinkedList {
             let toBeForgotten = pre.next;
             pre.next.next.prev = pre;
             pre.next = pre.next.next;
+            this.length--;
             toBeForgotten.next = null;
             toBeForgotten.prev = null;
             return true;
         }
     }
-}
 
-module.exports = { DoublyLinkedList };
+    //Reverse method
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let next;
+        while (node) {
+            next = node.next;
+            node.next = node.prev;
+            node.prev = next;
+            node = node.prev;
+        }
+        return this;
+    }
+}
