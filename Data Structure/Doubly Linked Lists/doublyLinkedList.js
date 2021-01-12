@@ -124,6 +124,20 @@ class DoublyLinkedList {
             return true;
         }
     }
+
+    remove(idx) {
+        if (idx === 0) !!this.shift();
+        else if (idx === this.length - 1) !!this.pop();
+        else {
+            let pre = this.get(idx - 1);
+            let toBeForgotten = pre.next;
+            pre.next.next.prev = pre;
+            pre.next = pre.next.next;
+            toBeForgotten.next = null;
+            toBeForgotten.prev = null;
+            return true;
+        }
+    }
 }
 
 module.exports = { DoublyLinkedList };
