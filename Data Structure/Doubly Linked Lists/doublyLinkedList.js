@@ -77,6 +77,37 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    //Get method
+    get(idx) {
+        if (idx < 0 || idx > this.length - 1) return null;
+        let i;
+        let node;
+        if (Math.floor(this.length / 2) > idx) {
+            i = 0;
+            node = this.head;
+            while (i !== idx) {
+                node = node.next;
+                i++;
+            }
+        } else {
+            i = this.length - 1;
+            node = this.tail;
+            while (i !== idx) {
+                node = node.prev;
+                i--;
+            }
+        }
+        return node;
+    }
+
+    //Set method
+    set(idx, val) {
+        let node = this.get(idx);
+        if (!node) return false;
+        node.val = val;
+        return true;
+    }
 }
 
 module.exports = { DoublyLinkedList };
