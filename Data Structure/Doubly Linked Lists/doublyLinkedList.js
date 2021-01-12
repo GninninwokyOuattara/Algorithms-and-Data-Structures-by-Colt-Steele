@@ -108,6 +108,22 @@ class DoublyLinkedList {
         node.val = val;
         return true;
     }
+
+    insert(idx, val) {
+        let node = new Node(val);
+        if (idx === 0) !!this.unshift(val);
+        else if (idx === this.length) !!this.push(val);
+        else {
+            let pre = this.get(idx - 1);
+            if (!pre) return false;
+            pre.next.prev = node;
+            node.next = pre.next;
+            node.prev = pre;
+            pre.next = node;
+            this.length++;
+            return true;
+        }
+    }
 }
 
 module.exports = { DoublyLinkedList };
