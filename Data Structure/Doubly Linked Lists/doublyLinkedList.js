@@ -13,6 +13,7 @@ class DoublyLinkedList {
         this.length = 0;
     }
 
+    //Push method
     push(val) {
         let newNode = new Node(val);
         newNode.prev = this.tail;
@@ -24,6 +25,25 @@ class DoublyLinkedList {
             this.tail = newNode;
         }
         this.length++;
+        return this;
+    }
+
+    //Pop method
+    pop() {
+        if (this.length === 0) return undefined;
+        else if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+            this.length--;
+            return this;
+        }
+        let prev = this.tail.prev;
+        prev.next = null;
+        let deleted = this.tail;
+        deleted.prev = null;
+        this.tail = prev;
+        this.length--;
+        return deleted;
     }
 }
 
