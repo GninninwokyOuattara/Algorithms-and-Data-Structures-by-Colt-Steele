@@ -56,19 +56,30 @@ class BinarySearchTree {
             }
         }
     }
+
+    search(val) {
+        if (!this.root) return false;
+        else {
+            let currNode = this.root;
+            let found = false;
+            while (currNode && !found) {
+                if (val < currNode.val) {
+                    currNode = currNode.left;
+                } else if (val > currNode.val) {
+                    currNode = currNode.right;
+                } else {
+                    found = true;
+                }
+            }
+            return found;
+        }
+    }
+
+    searchRecursive(val, currNode = this.root) {
+        if (!currNode) return false;
+        if (val < currNode.val) return this.searchRecursive(val, currNode.left);
+        else if (val > currNode.val)
+            return this.searchRecursive(val, currNode.right);
+        else return true;
+    }
 }
-
-let k = new BinarySearchTree();
-// k.insert(1);
-// k.insert(0);
-// k.insert(2);
-// k.insertRecursive(3);
-
-k.insertRecursive(10);
-k.insertRecursive(5);
-k.insertRecursive(13);
-k.insertRecursive(11);
-k.insertRecursive(12);
-k.insertRecursive(16);
-k.insertRecursive(7);
-console.log(k);
